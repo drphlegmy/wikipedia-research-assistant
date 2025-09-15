@@ -1,0 +1,103 @@
+/* static/style.css */
+
+/* Base */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+/* Override header links to white */
+header a {
+  color: #fff;
+}
+header a:hover {
+  color: #e0e0e0;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Forms */
+form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+form label {
+  display: block;
+  margin: 0.75rem 0;
+}
+form input[type="text"],
+form input[type="number"],
+form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+form button:hover {
+  background-color: #357ab8;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.card h2, .card h3 {
+  margin-top: 0;
+}
+.card p {
+  line-height: 1.4;
+}
+
+/* Grid for related articles */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Separator */
+hr {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin: 2rem 0;
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Wiki Research Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Wikipedia Research Assistant</h1>
+    </header>
+    <div class="container">
+      {% if error %}
+        <div class="card" style="border-left: 4px solid #e24a4a;">
+          <p style="margin:0; color:#e24a4a;"><strong>Error:</strong> {{ error }}</p>
+        </div>
+      {% endif %}
+      <form method="post">
+        <label>
+          Topic:
+          <input type="text" name="topic" placeholder="e.g. climate change" required>
+        </label>
+
+        <label>
+          Mode:
+          <select name="mode">
+            <option value="links">Links</option>
+            <option value="summaries" selected>Summaries</option>
+            <option value="filtered">Filtered</option>
+          </select>
+        </label>
+
+        <label>
+          Limit:
+          <input type="number" name="limit" value="5" min="1">
+        </label>
+
+        <label>
+          Keywords (for filtering, space-separated):
+          <input type="text" name="keywords">
+        </label>
+
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </body>
+</html>

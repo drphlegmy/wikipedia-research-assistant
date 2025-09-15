@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Results for {{ main.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Results for “{{ main.title }}”</h1>
+      <p style="margin:0;"><a href="/">← New Search</a></p>
+    </header>
+
+    <div class="container">
+      <!-- Main article card -->
+      <div class="card">
+        <h2><a href="{{ main.url }}" target="_blank">{{ main.title }}</a></h2>
+        {% if mode in ['summaries','filtered'] %}
+          <p><strong>Excerpt:</strong> {{ main.excerpt }}</p>
+          <p><strong>Categories:</strong> {{ main.categories|join(', ') }}</p>
+        {% endif %}
+      </div>
+
+      <hr>
+
+      <!-- Related articles grid -->
+      <h2>Related Articles (up to {{ limit }})</h2>
+      {% if mode == 'filtered' and keywords %}
+        <p><em>Filtered by: {{ keywords|join(', ') }}</em></p>
+      {% endif %}
+
+      <div class="cards-grid">
+        {% for item in related %}
+          <div class="card">
+            <h3><a href="{{ item.url }}" target="_blank">{{ item.title }}</a></h3>
+            {% if mode in ['summaries','filtered'] %}
+              <p>{{ item.excerpt }}</p>
+            {% endif %}
+            <p><small>Categories: {{ item.categories|join(', ') }}</small></p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
